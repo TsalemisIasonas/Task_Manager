@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
 }
 
 class HomePageContent extends StatelessWidget {
-  const HomePageContent({ Key? key }) : super(key: key);
+  const HomePageContent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -63,8 +63,40 @@ class HomePageContent extends StatelessWidget {
         backgroundColor: Colors.black,
       ),
       body: Container(
-        color: bgColor,
-      ),
-    );
+          decoration:  const BoxDecoration(
+            gradient: LinearGradient(
+              colors:  [
+                Color.fromARGB(255, 52, 11, 56),
+                Color.fromARGB(255, 45, 6, 49),
+                Color.fromARGB(255, 11, 11, 11),
+              ],
+              stops: [0.1, 0.15,0.6], // Adjust the stops to control the distribution
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
+      );
   }
 }
+
+// class MyPainter extends CustomPainter {
+//   @override
+//   void paint(Canvas canvas, Size size) {
+//     // Implement your custom painting logic here
+//     final Paint paint = Paint()
+//       ..color = Colors.white
+//       ..strokeCap = StrokeCap.round
+//       ..strokeWidth = 10.0;
+
+//     // Draw some custom shapes
+//     canvas.drawLine(const Offset(50, 50), const Offset(200, 200), paint);
+//     canvas.drawCircle(const Offset(300, 300), 50, paint);
+//     // Add more custom drawing operations as needed
+//   }
+
+//   @override
+//   bool shouldRepaint(CustomPainter oldDelegate) {
+//     return false;
+//   }
+// }

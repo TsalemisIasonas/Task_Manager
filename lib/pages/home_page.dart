@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         iconSize: 30.0,
         backgroundColor: Colors.black,
-        fixedColor: fgColor,
+        fixedColor: Colors.white,
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
@@ -63,20 +63,33 @@ class HomePageContent extends StatelessWidget {
         backgroundColor: Colors.black,
       ),
       body: Container(
-          decoration:  const BoxDecoration(
-            gradient: LinearGradient(
-              colors:  [
-                Color.fromARGB(255, 52, 11, 56),
-                Color.fromARGB(255, 45, 6, 49),
-                Color.fromARGB(255, 11, 11, 11),
-              ],
-              stops: [0.1, 0.15,0.6], // Adjust the stops to control the distribution
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 52, 11, 56),
+              Color.fromARGB(255, 45, 6, 49),
+              Color.fromARGB(255, 11, 11, 11),
+            ],
+            stops: [0.1, 0.15, 0.6],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
         ),
-      );
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Text(
+                'Task\n    Manager',
+                style: TextStyle(fontSize: 40.0),
+              ),
+              Icon(Icons.note, size: 200.0,),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 

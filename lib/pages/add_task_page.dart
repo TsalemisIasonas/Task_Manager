@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/constants/colors.dart';
 
 
 class AddTask extends StatelessWidget {
@@ -6,6 +7,14 @@ class AddTask extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: const Text("Add New Task"),
+      elevation: 0,
+      backgroundColor: Colors.black,),
+      body: Container(
+        color: bgColor,
+      ),
+    );
+    
   }
 }

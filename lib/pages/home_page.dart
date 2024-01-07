@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/pages/add_task_page.dart';
 import 'package:task_manager/pages/my_tasks.dart';
-import 'package:task_manager/constants/colors.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

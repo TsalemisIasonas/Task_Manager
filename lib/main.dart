@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
       title: "Task Manager",
       home: const HomePage(),
       theme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Colors.purple,
-        backgroundColor: const Color.fromARGB(255, 11, 11, 11),
-        fontFamily: 'Aquire'
-      ),
+          brightness: Brightness.dark,
+          primaryColor: Colors.purple,
+          backgroundColor: const Color.fromARGB(255, 11, 11, 11),
+          fontFamily: 'Aquire',
+          textSelectionTheme: const TextSelectionThemeData(cursorColor: Colors.white)),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:task_manager/constants/colors.dart';
 import 'package:task_manager/pages/checklistadd.dart';
 import 'package:task_manager/pages/noteadd.dart';
+import 'package:task_manager/pages/notetemplate.dart';
+import '../models/note.dart';
 
 class NoteCategory {
   final String name;
@@ -21,7 +23,6 @@ class NoteCategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
@@ -83,10 +84,15 @@ class AddTask extends StatefulWidget {
 }
 
 class _AddTaskState extends State<AddTask> {
-  void noteCreate() {
-    setState(() {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const NoteAdd()));
-    });
+  void noteCreate() async {
+    final res = await Navigator.push(context, MaterialPageRoute(builder: (context) => const NoteAdd()));
+
+    if (res!= null){
+      allNotes.add(
+        NoteTemplate(note: Note(id: allNotes.length+1,title: res[0],content: res[1], modifiedTime: DateTime.now())
+      )
+      );
+    }
   }
 
   void checklistCreate() {

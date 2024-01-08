@@ -11,8 +11,11 @@ class NoteAdd extends StatefulWidget {
 class _NoteAddState extends State<NoteAdd> {
   TextEditingController _titleController = TextEditingController();
   TextEditingController _contentController = TextEditingController();
+  
 
-  void save() {}
+  void save() {
+    Navigator.pop(context,[_titleController.text, _contentController.text]);
+  }
   void lock() {}
 
   @override
@@ -46,16 +49,19 @@ class _NoteAddState extends State<NoteAdd> {
               children: [
                 TextField(
                   controller: _titleController,
-                  style: const TextStyle(color: Colors.white, fontSize: 30),
+                  style: const TextStyle(color: Colors.white, fontSize: 30, fontFamily: 'Sans Serif'),
                   decoration: const InputDecoration(
+                    focusColor: Colors.red,
                       border: InputBorder.none,
                       hintText: 'Title',
-                      hintStyle: TextStyle(color: Colors.grey, fontSize: 30)),
+                      hintStyle: TextStyle(color: Colors.grey, fontSize: 30,fontFamily: 'Aquire')),
                 ),
                 TextField(
                   controller: _contentController,
                   style: const TextStyle(
                     color: Colors.white,
+                    fontSize: 15,
+                    fontFamily: 'Sans Serif'
                   ),
                   maxLines: null,
                   decoration: const InputDecoration(
@@ -63,6 +69,8 @@ class _NoteAddState extends State<NoteAdd> {
                       hintText: 'Type something here',
                       hintStyle: TextStyle(
                         color: Colors.grey,
+                        fontSize: 15,
+                        fontFamily: 'Aquire'
                       )),
                 ),
               ],

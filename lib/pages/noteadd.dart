@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/constants/colors.dart';
 
-class NoteAdd extends StatelessWidget {
+class NoteAdd extends StatefulWidget {
   const NoteAdd({Key? key}) : super(key: key);
 
+  @override
+  State<NoteAdd> createState() => _NoteAddState();
+}
+
+class _NoteAddState extends State<NoteAdd> {
+  TextEditingController _titleController = TextEditingController();
+  TextEditingController _contentController = TextEditingController();
+
   void save() {}
+  void lock() {}
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +23,9 @@ class NoteAdd extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(
-              onPressed: save,
+              onPressed: lock,
               icon: Icon(
-                Icons.save,
+                Icons.lock,
                 color: fgColor,
               ))
         ],
@@ -29,22 +38,38 @@ class NoteAdd extends StatelessWidget {
                 colors: [Colors.black, bgColor],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                stops: [0.2, 0.9])),
+                stops: const [0.2, 0.6])),
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(children: [
-            TextField(
-              decoration:
-                  InputDecoration(hintText: "Title", focusColor: fgColor),
-            ),
-            SizedBox(height: 30.0),
-            TextField(
-              decoration:
-                  InputDecoration(hintText: "Content", focusColor: fgColor),
-            )
-          ]),
-        ),
+            padding: const EdgeInsets.fromLTRB(16, 40, 16, 0),
+            child: Expanded(
+                child: ListView(
+              children: [
+                TextField(
+                  controller: _titleController,
+                  style: const TextStyle(color: Colors.white, fontSize: 30),
+                  decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Title',
+                      hintStyle: TextStyle(color: Colors.grey, fontSize: 30)),
+                ),
+                TextField(
+                  controller: _contentController,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                  maxLines: null,
+                  decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Type something here',
+                      hintStyle: TextStyle(
+                        color: Colors.grey,
+                      )),
+                ),
+              ],
+            ))),
       ),
+      floatingActionButton:
+          FloatingActionButton(backgroundColor: fgColor, onPressed: save, child: const Icon(Icons.save), elevation: 10),
     );
   }
 }

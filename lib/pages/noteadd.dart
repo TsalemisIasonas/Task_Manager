@@ -36,7 +36,7 @@ class _NoteAddState extends State<NoteAdd> {
       body: Container(
         decoration: BoxDecoration(
             color: bgColor,
-            border: Border.all(color: Colors.red, width: 2.0),
+            
             gradient: LinearGradient(
                 colors: [Colors.black, bgColor],
                 begin: Alignment.topCenter,
